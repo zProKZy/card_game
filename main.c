@@ -88,7 +88,6 @@ int main() {
     srand(time(0));  // Seed the random number generator
 
     // start intro
-    /*
     delay(1);
     printf("\n\n\t\t\t\t\t\t    zProKZy presents");
     delay(3);
@@ -97,7 +96,6 @@ int main() {
     delay(2);
     printf("\n\t\t\t\t\t\t  Press any key to start\n");
     getch();
-    */
 
     system("color 0f");
     system("cls");
