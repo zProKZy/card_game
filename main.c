@@ -7,6 +7,11 @@
 
 int choice, money = 100, token = 1;
 int card_count = 0;
+int money_code, token_code, all_code = 0;
+char money_choice[] = "money777";
+char token_choice[] = "token888";
+char all_choice[] = "all999";
+char secret_ans[10];
 
 void delay(int second);
 void shop();
@@ -107,6 +112,7 @@ int main() {
         printf("[3] Shop\n");
         printf("[4] Battle\n");
         printf("[5] Quests\n");
+        printf("[6] ???\n");
         printf("Choose an option: ");
         scanf("%d", &choice);
 
@@ -146,6 +152,57 @@ int main() {
         else if (choice == 5) {
             system("cls");
             printf("Quests\n");
+        }
+        else if (choice == 6) {
+            system("cls");
+            printf("Hey! What are you doing?");
+            delay(3);
+            system("cls");
+            printf("You gonna break something you know?");
+            delay(3);
+            system("cls");
+            printf("So... What you want?\n");
+            scanf("%s", &secret_ans);
+            if (strcmp(money_choice, secret_ans) == 0) {
+                if (money_code == 1) {
+                    printf("You can't get this anymore!");
+                    getch();
+                    system("cls");
+                    continue;
+                }
+                printf("You got 10000$ !");
+                money_code += 1;
+                money += 100000;
+                getch();
+                system("cls");
+            }
+            else if (strcmp(token_choice, secret_ans) == 0) {
+                if (token_code == 1) {
+                    printf("You can't get this anymore!");
+                    getch();
+                    system("cls");
+                    continue;
+                }
+                printf("You got 100 Token!");
+                token_code += 1;
+                token += 100;
+                getch();
+                system("cls");
+            }
+            else if (strcmp(all_choice, secret_ans) == 0) {
+                if (all_code == 1) {
+                    printf("You can't get this anymore!");
+                    getch();
+                    system("cls");
+                    continue;
+                }
+                printf("You got 10000$ and 100 Token!");
+                all_code += 1;
+                money += 10000;
+                token += 100;
+                getch();
+                system("cls");
+            }
         } else {
             system("cls");
             printf("\n\nLeft the game\n\n");
@@ -169,8 +226,8 @@ void delay(int second) {
 
 void shop_menu() {
     int shop_choice;
-    printf("[1] 1 Token -------------------- 100 $\n");
-    printf("[2] 5 Token -------------------- 500 $\n");
+    printf("[1] 1 Token -------------------- 100$\n");
+    printf("[2] 5 Token -------------------- 500$\n");
     delay(1);
     printf("Select your items: ");
     scanf("%d", &shop_choice);
@@ -191,7 +248,7 @@ void shop_menu() {
             getch();
             break;
         } else {
-            printf("Purchase not complete!");
+            printf("Purchase cancel!");
             break;
         }
     }
